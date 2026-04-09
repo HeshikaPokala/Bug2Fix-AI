@@ -391,7 +391,7 @@ def _inject_theme_css() -> None:
 
 
 st.set_page_config(
-    page_title="Agent War Room",
+    page_title="Bug2Fix",
     page_icon="AI",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -399,7 +399,7 @@ st.set_page_config(
 
 _inject_theme_css()
 
-st.title("Agent War Room")
+st.title("Bug2Fix")
 st.caption("Upload bug report + logs (+ optional repo snapshot zip), then run deterministic multi-agent analysis.")
 
 with st.sidebar:

@@ -167,7 +167,7 @@ export default function App() {
           Multi-agent orchestration
         </p>
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          <span className="text-gradient">Agent War Room</span>
+          <span className="text-gradient">Bug2Fix</span>
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-zinc-400">
           Bug report, logs, and repo snapshot flow through specialized agents. Watch the trace, read
