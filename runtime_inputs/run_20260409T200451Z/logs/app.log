@@ -1,0 +1,16 @@
+2026-04-08 11:21:01 INFO request_id=9c1a endpoint=/process payload_size=3
+2026-04-08 11:21:01 INFO request_id=9c1a status=200 latency_ms=14
+2026-04-08 11:22:10 INFO request_id=1ad2 endpoint=/process payload_size=0
+2026-04-08 11:22:10 WARN request_id=1ad2 unusual payload received: values=[]
+2026-04-08 11:22:10 DEBUG request_id=1ad2 entering process_batch
+2026-04-08 11:22:10 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 44, in handle_request
+    result = process_batch(values)
+  File "mini_repo/app.py", line 7, in process_batch
+    return average(values)
+  File "mini_repo/calculator.py", line 6, in average
+    return sum(nums) / len(nums)
+ZeroDivisionError: division by zero
+2026-04-08 11:22:11 ERROR request_id=1ad2 status=500 endpoint=/process
+2026-04-08 11:22:12 INFO ad_service clickstream flush success
