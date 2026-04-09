@@ -7,6 +7,7 @@ Run from project root:
 
 from __future__ import annotations
 
+import html
 import json
 from datetime import datetime, timezone
 from pathlib import Path
@@ -179,14 +180,15 @@ def _inject_theme_css() -> None:
     st.markdown(
         """
 <style>
-  /* App shell */
+  /* App shell — light */
   .stApp {
-    background: radial-gradient(1200px 600px at 50% -10%, rgba(124, 58, 237, 0.12), transparent),
-                linear-gradient(180deg, #09090b 0%, #0c0c0f 55%, #09090b 100%);
+    background: radial-gradient(1000px 480px at 50% -8%, rgba(124, 58, 237, 0.06), transparent),
+                linear-gradient(180deg, #ffffff 0%, #f8fafc 45%, #f1f5f9 100%);
+    color: #334155;
   }
   section[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #0f0f12 0%, #0a0a0c 100%) !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%) !important;
+    border-right: 1px solid #e2e8f0;
   }
   section[data-testid="stSidebar"] .block-container {
     padding-top: 1.5rem;
@@ -196,56 +198,62 @@ def _inject_theme_css() -> None:
     padding-bottom: 3rem;
     max-width: 72rem;
   }
+  /* Body copy */
+  .main [data-testid="stMarkdown"] p,
+  .main [data-testid="stMarkdown"] li {
+    color: #334155;
+  }
   /* Typography */
   h1 {
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: #fafafa !important;
+    color: #0f172a !important;
     margin-bottom: 0.35rem !important;
   }
   h2, h3 {
     font-weight: 600;
     letter-spacing: -0.02em;
-    color: #f4f4f5 !important;
+    color: #1e293b !important;
     margin-top: 0.25rem !important;
     margin-bottom: 0.65rem !important;
     padding-bottom: 0.35rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid #e2e8f0;
   }
   .stCaption, [data-testid="caption"] {
-    color: #a1a1aa !important;
+    color: #64748b !important;
   }
   /* Metrics as cards */
   [data-testid="stMetric"] {
-    background: rgba(24, 24, 27, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     padding: 0.85rem 1rem !important;
     min-height: 5.5rem;
   }
   [data-testid="stMetricLabel"] {
-    color: #a1a1aa !important;
+    color: #64748b !important;
     font-size: 0.8rem !important;
     text-transform: none;
     letter-spacing: 0.01em;
   }
   [data-testid="stMetricValue"] {
-    color: #fafafa !important;
+    color: #0f172a !important;
     font-size: 1.5rem !important;
     font-weight: 600 !important;
   }
   /* Inputs */
   section[data-testid="stSidebar"] label {
-    color: #d4d4d8 !important;
+    color: #475569 !important;
     font-size: 0.85rem !important;
   }
   .stRadio label, .stTextInput label, .stFileUploader label {
-    color: #e4e4e7 !important;
+    color: #334155 !important;
   }
   div[data-baseweb="input"] input, div[data-baseweb="textarea"] textarea {
-    background-color: #18181b !important;
-    color: #fafafa !important;
-    border-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+    border-color: #cbd5e1 !important;
     border-radius: 8px !important;
   }
   /* Primary button */
@@ -255,72 +263,126 @@ def _inject_theme_css() -> None:
     border-radius: 10px !important;
     font-weight: 600 !important;
     padding: 0.55rem 1rem !important;
-    box-shadow: 0 8px 24px -8px rgba(124, 58, 237, 0.55);
+    color: #ffffff !important;
+    box-shadow: 0 6px 20px -6px rgba(124, 58, 237, 0.45);
   }
   .stButton button[kind="primary"]:hover {
-    filter: brightness(1.08);
+    filter: brightness(1.05);
   }
   /* Alerts */
   div[data-testid="stAlert"] {
     border-radius: 10px !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid #e2e8f0 !important;
   }
   /* Expanders */
   [data-testid="stExpander"] details {
-    background: rgba(24, 24, 27, 0.55) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 12px !important;
     margin-bottom: 0.5rem;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
   }
   [data-testid="stExpander"] summary {
     font-weight: 500 !important;
-    color: #e4e4e7 !important;
+    color: #1e293b !important;
   }
   [data-testid="stExpander"] summary:hover {
-    color: #fafafa !important;
+    color: #0f172a !important;
   }
   /* Code */
   .stCodeBlock, pre {
     border-radius: 10px !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid #e2e8f0 !important;
+    background-color: #f8fafc !important;
   }
   /* Dataframe */
   div[data-testid="stDataFrame"] {
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid #e2e8f0;
     overflow: hidden;
+    background: #ffffff;
   }
   /* Progress */
   .stProgress > div > div {
     background: linear-gradient(90deg, #7c3aed, #22d3ee) !important;
     border-radius: 999px;
   }
+  /* Hypothesis confidence label — white on purple/cyan track */
+  [data-testid="stProgress"] {
+    color: #ffffff !important;
+  }
+  [data-testid="stProgress"] p,
+  [data-testid="stProgress"] span,
+  [data-testid="stProgress"] label,
+  [data-testid="stProgress"] > div > div:first-child {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  }
+  [data-baseweb="progress-bar"] {
+    color: #ffffff !important;
+  }
+  /* Output paths footer — size + font aligned with main UI */
+  .wm-output-paths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e2e8f0;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875rem;
+  }
+  .wm-output-paths .wm-path-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 0.25rem;
+  }
+  .wm-output-paths .wm-path-value {
+    display: block;
+    font-size: 0.8125rem;
+    line-height: 1.45;
+    font-family: inherit;
+    font-weight: 400;
+    color: #334155;
+    background: #f8fafc;
+    padding: 0.45rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    word-break: break-all;
+  }
+  @media (max-width: 768px) {
+    .wm-output-paths {
+      grid-template-columns: 1fr;
+    }
+  }
   /* Dividers */
   hr {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid #e2e8f0;
     margin: 1.25rem 0;
   }
   /* Bordered containers (Streamlit) */
   div[data-testid="stVerticalBlockBorderWrapper"] {
-    background: rgba(24, 24, 27, 0.35) !important;
-    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 14px !important;
     padding: 1rem 1.15rem 1.15rem !important;
     margin-bottom: 1rem;
-    backdrop-filter: blur(8px);
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
   }
   /* Download */
   .stDownloadButton button {
     border-radius: 10px !important;
-    border: 1px solid rgba(167, 139, 250, 0.35) !important;
-    background: rgba(124, 58, 237, 0.15) !important;
-    color: #e9d5ff !important;
+    border: 1px solid #c4b5fd !important;
+    background: #f5f3ff !important;
+    color: #5b21b6 !important;
     font-weight: 500 !important;
   }
   .stDownloadButton button:hover {
-    background: rgba(124, 58, 237, 0.28) !important;
-    border-color: rgba(167, 139, 250, 0.55) !important;
+    background: #ede9fe !important;
+    border-color: #a78bfa !important;
   }
 </style>
         """,
@@ -375,8 +437,8 @@ with st.sidebar:
 
 st.markdown(
     """
-<div style="color:#a1a1aa;font-size:0.95rem;line-height:1.55;padding:0.65rem 0 0.25rem 0;">
-<strong style="color:#e4e4e7;">Pipeline:</strong>
+<div style="color:#64748b;font-size:0.95rem;line-height:1.55;padding:0.65rem 0 0.25rem 0;">
+<strong style="color:#1e293b;">Pipeline:</strong>
 parse inputs → triage → log evidence → minimal repro (run) → root cause + patch plan → critic review.
 </div>
 """,
@@ -560,8 +622,20 @@ st.download_button(
     file_name="Final Report.json",
     mime="application/json",
 )
-c1, c2 = st.columns(2)
-with c1:
-    st.caption(f"Report: `{paths['final_report_path']}`")
-with c2:
-    st.caption(f"Trace: `{paths['trace_path']}`")
+report_fp = html.escape(str(paths["final_report_path"]))
+trace_fp = html.escape(str(paths["trace_path"]))
+st.markdown(
+    f"""
+<div class="wm-output-paths">
+  <div>
+    <div class="wm-path-label">Report:</div>
+    <span class="wm-path-value">{report_fp}</span>
+  </div>
+  <div>
+    <div class="wm-path-label">Trace:</div>
+    <span class="wm-path-value">{trace_fp}</span>
+  </div>
+</div>
+""",
+    unsafe_allow_html=True,
+)
