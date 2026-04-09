@@ -1,0 +1,106 @@
+{
+  "bug_summary": {
+    "title": "Batch Processing API crashes for empty payload",
+    "symptoms": "Production endpoint intermittently crashes during empty batch processing.",
+    "severity": "high",
+    "scope": "Affects batch processing API path when input list is empty."
+  },
+  "evidence": [
+    {
+      "type": "error_signatures",
+      "count": 3,
+      "items": [
+        {
+          "line": "7",
+          "text": "Traceback (most recent call last):"
+        },
+        {
+          "line": "14",
+          "text": "ZeroDivisionError: division by zero"
+        },
+        {
+          "line": "15",
+          "text": "2026-04-08 11:22:11 ERROR request_id=1ad2 status=500 endpoint=/process"
+        }
+      ]
+    },
+    {
+      "type": "stack_trace",
+      "lines": [
+        "Traceback (most recent call last):",
+        "  File \"service.py\", line 44, in handle_request",
+        "    result = process_batch(values)",
+        "  File \"mini_repo/app.py\", line 7, in process_batch",
+        "    return average(values)",
+        "  File \"mini_repo/calculator.py\", line 6, in average",
+        "    return sum(nums) / len(nums)",
+        "ZeroDivisionError: division by zero"
+      ]
+    }
+  ],
+  "repro": {
+    "steps": [
+      "Run generated repro script",
+      "Observe ZeroDivisionError on empty list input"
+    ],
+    "artifact_path": "/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/artifacts/generated_repro/repro_average_empty.py",
+    "command": "python3 artifacts/generated_repro/repro_average_empty.py",
+    "result": {
+      "failed_consistently": true,
+      "return_code": 1,
+      "stdout": "Running minimal repro...\nInput: []\nExpected: 0.0 (graceful behavior)\nActual:\n",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/artifacts/generated_repro/repro_average_empty.py\", line 12, in <module>\n    print(average([]))\n          ~~~~~~~^^^^\n  File \"/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/mini_repo/calculator.py\", line 6, in average\n    return sum(nums) / len(nums)\n           ~~~~~~~~~~^~~~~~~~~~~\nZeroDivisionError: division by zero\n",
+      "failure_signature": "ZeroDivisionError"
+    }
+  },
+  "root_cause_hypothesis": {
+    "statement": "average(nums) performs sum(nums)/len(nums) without guarding empty lists.",
+    "confidence": 0.89,
+    "supporting_evidence": [
+      "Log stack trace includes ZeroDivisionError in calculator.py",
+      "Reproduction script fails on average([])",
+      "Repository search found average() implementation"
+    ]
+  },
+  "patch_plan": {
+    "files_impacted": [
+      "mini_repo/calculator.py",
+      "mini_repo/tests/test_calculator.py"
+    ],
+    "approach": [
+      "Add guard clause in average(nums): return 0.0 when nums is empty.",
+      "Add unit tests for empty, single-value, and mixed-value lists.",
+      "Add input validation for None to avoid TypeError."
+    ],
+    "risks": [
+      "Silent default on empty input may hide upstream data issues.",
+      "Behavioral change could affect callers expecting exception semantics."
+    ],
+    "repo_search_hits": [
+      "/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/mini_repo/calculator.py:4:def average(nums: list[float]) -> float:"
+    ]
+  },
+  "validation_plan": {
+    "tests_to_add": [
+      "test_average_empty_returns_zero",
+      "test_average_singleton",
+      "test_average_regular_values"
+    ],
+    "regression_checks": [
+      "Run full test suite",
+      "Replay recent batch payloads",
+      "Check error-rate dashboard for drop in ZeroDivisionError"
+    ]
+  },
+  "reviewer_critic_findings": [
+    {
+      "severity": "low",
+      "issue": "Add explicit decision note on whether empty list should be valid domain input."
+    }
+  ],
+  "open_questions": [
+    "Should empty input return 0.0 or raise a domain-specific exception?",
+    "Is there any caller that depends on previous crashing behavior?"
+  ],
+  "confidence": 0.92
+}

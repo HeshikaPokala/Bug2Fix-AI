@@ -1,0 +1,12 @@
+{"ts": "2026-04-09T19:45:01.999085+00:00", "event": "workflow_start", "payload": {"run_id": "20260409T194501Z"}}
+{"ts": "2026-04-09T19:45:01.999423+00:00", "event": "agent_start", "payload": {"agent": "TriageAgent"}}
+{"ts": "2026-04-09T19:45:02.000273+00:00", "event": "agent_end", "payload": {"agent": "TriageAgent", "title": "Batch Processing API crashes for empty payload", "severity": "high", "hypothesis_count": 3}}
+{"ts": "2026-04-09T19:45:02.000413+00:00", "event": "agent_start", "payload": {"agent": "LogAnalystAgent"}}
+{"ts": "2026-04-09T19:45:02.001347+00:00", "event": "agent_end", "payload": {"agent": "LogAnalystAgent", "signature_count": 3, "stack_lines": 8, "version_markers": 0, "noise_lines": 2}}
+{"ts": "2026-04-09T19:45:02.001482+00:00", "event": "agent_start", "payload": {"agent": "ReproductionAgent"}}
+{"ts": "2026-04-09T19:45:02.053227+00:00", "event": "agent_end", "payload": {"agent": "ReproductionAgent", "artifact": "/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/artifacts/generated_repro/repro_average_empty.py", "return_code": 1}}
+{"ts": "2026-04-09T19:45:02.053385+00:00", "event": "agent_start", "payload": {"agent": "FixPlannerAgent"}}
+{"ts": "2026-04-09T19:45:02.056888+00:00", "event": "agent_end", "payload": {"agent": "FixPlannerAgent", "repo_hits": 1}}
+{"ts": "2026-04-09T19:45:02.056982+00:00", "event": "agent_start", "payload": {"agent": "ReviewerCriticAgent"}}
+{"ts": "2026-04-09T19:45:02.057027+00:00", "event": "agent_end", "payload": {"agent": "ReviewerCriticAgent", "findings": 1, "confidence": 0.92}}
+{"ts": "2026-04-09T19:45:02.057279+00:00", "event": "workflow_end", "payload": {"run_id": "20260409T194501Z", "final_report_path": "/Users/heshikapokala/Documents/Projects/Purple Merit/Assignment -2/artifacts/Final Report.json"}}

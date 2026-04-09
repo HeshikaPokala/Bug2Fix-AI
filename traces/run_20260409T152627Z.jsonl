@@ -1,0 +1,12 @@
+{"ts": "2026-04-09T15:26:27.632101+00:00", "event": "workflow_start", "payload": {"run_id": "20260409T152627Z"}}
+{"ts": "2026-04-09T15:26:27.632253+00:00", "event": "agent_start", "payload": {"agent": "TriageAgent"}}
+{"ts": "2026-04-09T15:26:27.632358+00:00", "event": "agent_end", "payload": {"agent": "TriageAgent", "title": "Batch Processing API crashes for empty payload"}}
+{"ts": "2026-04-09T15:26:27.632411+00:00", "event": "agent_start", "payload": {"agent": "LogAnalystAgent"}}
+{"ts": "2026-04-09T15:26:27.632559+00:00", "event": "agent_end", "payload": {"agent": "LogAnalystAgent", "signature_count": 3, "stack_lines": 8}}
+{"ts": "2026-04-09T15:26:27.632608+00:00", "event": "agent_start", "payload": {"agent": "ReproductionAgent"}}
+{"ts": "2026-04-09T15:26:27.655612+00:00", "event": "agent_end", "payload": {"agent": "ReproductionAgent", "artifact": "artifacts/generated_repro/repro_average_empty.py", "return_code": 1}}
+{"ts": "2026-04-09T15:26:27.655775+00:00", "event": "agent_start", "payload": {"agent": "FixPlannerAgent"}}
+{"ts": "2026-04-09T15:26:27.657772+00:00", "event": "agent_end", "payload": {"agent": "FixPlannerAgent", "repo_hits": 1}}
+{"ts": "2026-04-09T15:26:27.657844+00:00", "event": "agent_start", "payload": {"agent": "ReviewerCriticAgent"}}
+{"ts": "2026-04-09T15:26:27.657896+00:00", "event": "agent_end", "payload": {"agent": "ReviewerCriticAgent", "findings": 2, "confidence": 0.74}}
+{"ts": "2026-04-09T15:26:27.658124+00:00", "event": "workflow_end", "payload": {"run_id": "20260409T152627Z", "final_report_path": "artifacts/final_report_20260409T152627Z.json"}}
