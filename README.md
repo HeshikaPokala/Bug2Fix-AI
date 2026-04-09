@@ -1,4 +1,4 @@
-# Assessment 2 — Multi-Agent Bug Triage, Reproduction, and Fix Planning
+# Multi-Agent Bug Triage, Reproduction, and Fix Planning
 
 This repository implements **Multi-agent system** that ingests a **bug report**, **logs**, and an optional **repository snapshot**, then produces a **minimal reproduction**, a **root-cause hypothesis**, a **patch plan**, **verification steps**, and a **structured final report** — with full **traceability** of agent steps and tool usage.
 
