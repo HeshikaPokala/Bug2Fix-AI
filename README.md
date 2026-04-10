@@ -165,25 +165,6 @@ streamlit run streamlit_app.py
 - Upload bug report and logs  
 - Optionally provide repo (or use `mini_repo`)  
 
----
-
-### FastAPI + React UI
-
-```
-cd frontend
-npm install
-npm run build
-cd ..
-
-uvicorn app.api.server:app --reload --host 127.0.0.1 --port 8000
-```
-
-- UI: http://127.0.0.1:8000/ui/  
-- API Docs: http://127.0.0.1:8000/docs  
-
-For development:
-- Run `uvicorn` (backend)  
-- Run `npm run dev` (frontend with hot reload)  
 
 ---
 
