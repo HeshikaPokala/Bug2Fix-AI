@@ -1,0 +1,12 @@
+2026-05-24 00:00:01 INFO request_id=g023 endpoint=/config/retry-policy payload_size=1
+2026-05-24 00:00:01 WARN request_id=g023 unusual payload received: n=50
+2026-05-24 00:00:01 DEBUG request_id=g023 entering set_max_retries
+2026-05-24 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 89, in handle_retry_policy_request
+    result = set_max_retries(...)
+  File "mini_repo/retrypolicy.py", line 8, in set_max_retries
+    raise ValueError(f"retry count {n} is unreasonably high")
+ValueError: retry count 50 is unreasonably high
+2026-05-24 00:00:02 ERROR request_id=g023 status=500 endpoint=/config/retry-policy
+2026-05-24 00:00:03 INFO ad_service clickstream flush success

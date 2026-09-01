@@ -25,6 +25,24 @@ class RunRequest(BaseModel):
     logs: str = Field(default="inputs/logs/app.log")
     repo_root: str = Field(default="mini_repo")
     output_dir: str = Field(default="artifacts")
+    use_llm: bool = Field(default=True)
+
+
+def _safe_project_path(raw: str, field_name: str) -> Path:
+    """Resolve a client-supplied path and refuse anything that escapes PROJECT_ROOT
+    (via '..', an absolute path elsewhere, or a symlink) -- without this, /api/run
+    would let a caller read arbitrary files off the server by passing e.g.
+    "../../../../etc/passwd" as `logs`.
+    """
+    candidate = Path(raw)
+    resolved = (candidate if candidate.is_absolute() else PROJECT_ROOT / candidate).resolve()
+    try:
+        resolved.relative_to(PROJECT_ROOT)
+    except ValueError:
+        raise HTTPException(
+            status_code=400, detail=f"{field_name} must resolve to a path inside the project directory"
+        ) from None
+    return resolved
 
 
 def _read_trace_jsonl(path: Path) -> list[dict]:
@@ -60,13 +78,19 @@ def create_app() -> FastAPI:
 
     @app.post("/api/run")
     async def run_analysis(body: RunRequest) -> JSONResponse:
+        bug_report_path = _safe_project_path(body.bug_report, "bug_report")
+        logs_path = _safe_project_path(body.logs, "logs")
+        repo_root = _safe_project_path(body.repo_root, "repo_root")
+        output_dir = _safe_project_path(body.output_dir, "output_dir")
+
         def _execute() -> dict:
             result = run_workflow(
-                bug_report_path=Path(body.bug_report),
-                logs_path=Path(body.logs),
-                repo_root=Path(body.repo_root),
-                output_dir=Path(body.output_dir),
+                bug_report_path=bug_report_path,
+                logs_path=logs_path,
+                repo_root=repo_root,
+                output_dir=output_dir,
                 workspace_root=PROJECT_ROOT,
+                use_llm=body.use_llm,
             )
             report_path = Path(result["final_report_path"])
             trace_path = Path(result["trace_path"])

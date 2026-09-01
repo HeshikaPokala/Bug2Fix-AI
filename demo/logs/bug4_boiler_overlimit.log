@@ -1,0 +1,12 @@
+2026-05-05 08:05:01 INFO request_id=dd44 endpoint=/boiler/set payload_size=1
+2026-05-05 08:05:01 WARN request_id=dd44 unusual payload received: celsius=150
+2026-05-05 08:05:01 DEBUG request_id=dd44 entering set_boiler_temperature
+2026-05-05 08:05:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 133, in handle_boiler_set_request
+    result = set_boiler_temperature(celsius)
+  File "mini_repo/thermostat.py", line 8, in set_boiler_temperature
+    raise ValueError(f"Requested temperature {celsius}C exceeds safe boiler limit of 100C")
+ValueError: Requested temperature 150C exceeds safe boiler limit of 100C
+2026-05-05 08:05:02 ERROR request_id=dd44 status=500 endpoint=/boiler/set
+2026-05-05 08:05:03 INFO ad_service clickstream flush success

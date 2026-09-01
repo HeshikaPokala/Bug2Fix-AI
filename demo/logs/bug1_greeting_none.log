@@ -1,0 +1,12 @@
+2026-05-02 10:01:01 INFO request_id=aa11 endpoint=/greet payload_size=1
+2026-05-02 10:01:01 WARN request_id=aa11 unusual payload received: name=null
+2026-05-02 10:01:01 DEBUG request_id=aa11 entering format_greeting
+2026-05-02 10:01:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 77, in handle_greet_request
+    result = format_greeting(name)
+  File "mini_repo/notifier.py", line 7, in format_greeting
+    return "Hello, " + name.upper() + "!"
+AttributeError: 'NoneType' object has no attribute 'upper'
+2026-05-02 10:01:02 ERROR request_id=aa11 status=500 endpoint=/greet
+2026-05-02 10:01:03 INFO ad_service clickstream flush success

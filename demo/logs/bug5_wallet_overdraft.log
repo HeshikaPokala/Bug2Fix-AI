@@ -1,0 +1,12 @@
+2026-05-06 19:30:01 INFO request_id=ee55 endpoint=/wallet/withdraw payload_size=2
+2026-05-06 19:30:01 WARN request_id=ee55 unusual payload received: balance=100 amount=200
+2026-05-06 19:30:01 DEBUG request_id=ee55 entering withdraw
+2026-05-06 19:30:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 155, in handle_withdraw_request
+    result = withdraw(balance, amount)
+  File "mini_repo/wallet.py", line 12, in withdraw
+    raise InsufficientFundsError(f"Cannot withdraw {amount}: balance {balance} plus $50 overdraft exceeded")
+InsufficientFundsError: Cannot withdraw 200: balance 100 plus $50 overdraft exceeded
+2026-05-06 19:30:02 ERROR request_id=ee55 status=500 endpoint=/wallet/withdraw
+2026-05-06 19:30:03 INFO ad_service clickstream flush success

@@ -1,0 +1,12 @@
+2026-05-08 16:45:01 INFO request_id=gg77 endpoint=/products/4821/price-range payload_size=0
+2026-05-08 16:45:01 WARN request_id=gg77 unusual payload received: prices=[]
+2026-05-08 16:45:01 DEBUG request_id=gg77 entering price_range
+2026-05-08 16:45:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 104, in handle_price_range_request
+    result = price_range(prices)
+  File "mini_repo/pricing.py", line 7, in price_range
+    return max(prices) - min(prices)
+ValueError: max() arg is an empty sequence
+2026-05-08 16:45:02 ERROR request_id=gg77 status=500 endpoint=/products/4821/price-range
+2026-05-08 16:45:03 INFO ad_service clickstream flush success

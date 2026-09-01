@@ -19,6 +19,7 @@ class WorkflowState:
     output_dir: Path
     trace_path: Path
     run_id: str
+    use_llm: bool = True
 
     bug_summary: dict[str, Any] = field(default_factory=dict)
     triage_hypotheses: list[dict[str, Any]] = field(default_factory=list)

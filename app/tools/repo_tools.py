@@ -5,6 +5,15 @@ import re
 from pathlib import Path
 
 
+def read_source_snippet(path: str, max_chars: int = 4000) -> str:
+    if not path:
+        return ""
+    try:
+        return Path(path).read_text(encoding="utf-8")[:max_chars]
+    except OSError:
+        return ""
+
+
 def repo_search(repo_root: Path, pattern: str) -> list[str]:
     cmd = ["rg", "-n", pattern, str(repo_root)]
     try:

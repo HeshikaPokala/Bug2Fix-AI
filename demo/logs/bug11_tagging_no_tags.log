@@ -1,0 +1,12 @@
+2026-05-12 00:00:01 INFO request_id=g011 endpoint=/posts/categorize payload_size=1
+2026-05-12 00:00:01 WARN request_id=g011 unusual payload received: tags=[]
+2026-05-12 00:00:01 DEBUG request_id=g011 entering first_tag
+2026-05-12 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 53, in handle_post_categorize_request
+    result = first_tag(...)
+  File "mini_repo/tagging.py", line 7, in first_tag
+    return tags[0]
+IndexError: list index out of range
+2026-05-12 00:00:02 ERROR request_id=g011 status=500 endpoint=/posts/categorize
+2026-05-12 00:00:03 INFO ad_service clickstream flush success

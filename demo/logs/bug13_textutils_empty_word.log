@@ -1,0 +1,12 @@
+2026-05-14 00:00:01 INFO request_id=g013 endpoint=/jobs/catalog_import payload_size=1
+2026-05-14 00:00:01 WARN request_id=g013 unusual payload received: name=
+2026-05-14 00:00:01 DEBUG request_id=g013 entering uppercase_first_letter
+2026-05-14 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 59, in run_catalog_import_job
+    result = uppercase_first_letter(...)
+  File "mini_repo/textutils.py", line 7, in uppercase_first_letter
+    return word[0].upper() + word[1:]
+IndexError: string index out of range
+2026-05-14 00:00:02 ERROR request_id=g013 status=500 endpoint=/jobs/catalog_import
+2026-05-14 00:00:03 INFO ad_service clickstream flush success

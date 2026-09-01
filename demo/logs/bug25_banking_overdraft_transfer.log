@@ -1,0 +1,12 @@
+2026-05-26 00:00:01 INFO request_id=g025 endpoint=/banking/transfer payload_size=1
+2026-05-26 00:00:01 WARN request_id=g025 unusual payload received: source_balance=200 transfer_amount=500
+2026-05-26 00:00:01 DEBUG request_id=g025 entering transfer_funds
+2026-05-26 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 95, in handle_transfer_request
+    result = transfer_funds(...)
+  File "mini_repo/banking.py", line 8, in transfer_funds
+    raise ValueError("insufficient balance for transfer")
+ValueError: insufficient balance for transfer
+2026-05-26 00:00:02 ERROR request_id=g025 status=500 endpoint=/banking/transfer
+2026-05-26 00:00:03 INFO ad_service clickstream flush success

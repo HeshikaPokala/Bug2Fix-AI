@@ -1,0 +1,12 @@
+2026-05-09 03:20:01 INFO request_id=hh88 endpoint=/jobs/calendar_sync payload_size=1
+2026-05-09 03:20:01 WARN request_id=hh88 unusual payload received: day_index=9
+2026-05-09 03:20:01 DEBUG request_id=hh88 entering get_weekday_name
+2026-05-09 03:20:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 121, in run_calendar_sync_job
+    result = get_weekday_name(day_index)
+  File "mini_repo/scheduler.py", line 9, in get_weekday_name
+    return _WEEKDAY_NAMES[day_index]
+IndexError: list index out of range
+2026-05-09 03:20:02 ERROR request_id=hh88 status=500 endpoint=/jobs/calendar_sync
+2026-05-09 03:20:03 INFO ad_service clickstream flush success

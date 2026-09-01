@@ -1,0 +1,12 @@
+2026-05-10 07:55:01 INFO request_id=ii99 endpoint=/jobs/discount_calc payload_size=2
+2026-05-10 07:55:01 WARN request_id=ii99 unusual payload received: original_price=50.00 sale_price=80.00
+2026-05-10 07:55:01 DEBUG request_id=ii99 entering calculate_discount
+2026-05-10 07:55:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 140, in run_discount_calc_job
+    result = calculate_discount(original_price, sale_price)
+  File "mini_repo/discounts.py", line 9, in calculate_discount
+    raise ValueError("Sale price cannot exceed original price")
+ValueError: Sale price cannot exceed original price
+2026-05-10 07:55:02 ERROR request_id=ii99 status=500 endpoint=/jobs/discount_calc
+2026-05-10 07:55:03 INFO ad_service clickstream flush success

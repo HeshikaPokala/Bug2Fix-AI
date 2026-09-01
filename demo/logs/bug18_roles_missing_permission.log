@@ -1,0 +1,12 @@
+2026-05-19 00:00:01 INFO request_id=g018 endpoint=/access/check payload_size=1
+2026-05-19 00:00:01 WARN request_id=g018 unusual payload received: role=viewer
+2026-05-19 00:00:01 DEBUG request_id=g018 entering get_user_permission
+2026-05-19 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 74, in handle_access_check_request
+    result = get_user_permission(...)
+  File "mini_repo/roles.py", line 7, in get_user_permission
+    return permissions[role]
+KeyError: 'viewer'
+2026-05-19 00:00:02 ERROR request_id=g018 status=500 endpoint=/access/check
+2026-05-19 00:00:03 INFO ad_service clickstream flush success

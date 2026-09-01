@@ -25,13 +25,19 @@ def run_workflow(
     repo_root: Path,
     output_dir: Path,
     workspace_root: Path | None = None,
+    use_llm: bool = True,
+    traces_dir: Path | None = None,
 ) -> dict[str, str]:
     base = (workspace_root or Path.cwd()).resolve()
     bug = _resolve(bug_report_path, base)
     logs = _resolve(logs_path, base)
     repo = _resolve(repo_root, base)
     out = _resolve(output_dir, base)
-    traces_dir = base / "traces"
+    out.mkdir(parents=True, exist_ok=True)
+    # Defaults to <workspace_root>/traces for CLI/UI callers (unchanged behavior);
+    # tests and the eval harness pass an explicit traces_dir so ad-hoc runs don't
+    # leave files behind in the real project tree.
+    traces_dir = _resolve(traces_dir, base) if traces_dir is not None else base / "traces"
     traces_dir.mkdir(parents=True, exist_ok=True)
     run_id = _run_id()
     trace_path = traces_dir / f"run_{run_id}.jsonl"
@@ -44,6 +50,7 @@ def run_workflow(
         output_dir=out,
         trace_path=trace_path,
         run_id=run_id,
+        use_llm=use_llm,
     )
     append_trace(trace_path, "workflow_start", {"run_id": run_id})
 
@@ -53,13 +60,20 @@ def run_workflow(
     fix_planner.run(state)
     reviewer.run(state)
 
+    failure_signature = state.repro_result.get("failure_signature", "unknown")
+    trigger_input = state.repro_result.get("trigger_input") or "the reproduction's chosen probe input"
+    repro_steps = (
+        ["Run generated repro script", f"Observe {failure_signature} triggered by {trigger_input}"]
+        if state.repro_artifact_path
+        else ["Reproduction skipped: no failing function could be resolved from the logs."]
+    )
     final = {
         "bug_summary": state.bug_summary,
         "triage_hypotheses": state.triage_hypotheses,
         "likely_failure_surface": state.likely_failure_surface,
         "evidence": state.log_evidence,
         "repro": {
-            "steps": ["Run generated repro script", "Observe ZeroDivisionError on empty list input"],
+            "steps": repro_steps,
             "artifact_path": state.repro_artifact_path,
             "command": state.repro_command,
             "result": state.repro_result,

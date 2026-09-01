@@ -1,0 +1,12 @@
+2026-05-03 02:15:01 INFO request_id=bb22 endpoint=/jobs/restock_check payload_size=0
+2026-05-03 02:15:01 WARN request_id=bb22 unusual payload received: stock_levels=[]
+2026-05-03 02:15:01 DEBUG request_id=bb22 entering restock_alert
+2026-05-03 02:15:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 112, in run_restock_job
+    result = restock_alert(stock_levels)
+  File "mini_repo/inventory.py", line 7, in restock_alert
+    return min(stock_levels) < 5
+ValueError: min() iterable argument is empty
+2026-05-03 02:15:02 ERROR request_id=bb22 status=500 endpoint=/jobs/restock_check
+2026-05-03 02:15:03 INFO ad_service clickstream flush success

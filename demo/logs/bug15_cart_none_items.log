@@ -1,0 +1,12 @@
+2026-05-16 00:00:01 INFO request_id=g015 endpoint=/checkout/total payload_size=1
+2026-05-16 00:00:01 WARN request_id=g015 unusual payload received: items=null
+2026-05-16 00:00:01 DEBUG request_id=g015 entering total_cart_value
+2026-05-16 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 65, in handle_checkout_total_request
+    result = total_cart_value(...)
+  File "mini_repo/cart.py", line 7, in total_cart_value
+    return sum(item["price"] for item in items)
+TypeError: 'NoneType' object is not iterable
+2026-05-16 00:00:02 ERROR request_id=g015 status=500 endpoint=/checkout/total
+2026-05-16 00:00:03 INFO ad_service clickstream flush success

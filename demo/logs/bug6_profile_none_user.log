@@ -1,0 +1,12 @@
+2026-05-07 11:12:01 INFO request_id=ff66 endpoint=/profile/render payload_size=1
+2026-05-07 11:12:01 WARN request_id=ff66 unusual payload received: user=null
+2026-05-07 11:12:01 DEBUG request_id=ff66 entering get_display_name
+2026-05-07 11:12:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 91, in handle_profile_render_request
+    result = get_display_name(user)
+  File "mini_repo/profile.py", line 7, in get_display_name
+    return user["first_name"] + " " + user["last_name"]
+TypeError: 'NoneType' object is not subscriptable
+2026-05-07 11:12:02 ERROR request_id=ff66 status=500 endpoint=/profile/render
+2026-05-07 11:12:03 INFO ad_service clickstream flush success

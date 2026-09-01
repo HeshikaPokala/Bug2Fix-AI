@@ -1,0 +1,12 @@
+2026-05-27 00:00:01 INFO request_id=g026 endpoint=/logistics/schedule payload_size=1
+2026-05-27 00:00:01 WARN request_id=g026 unusual payload received: current_stock=8 order_quantity=25
+2026-05-27 00:00:01 DEBUG request_id=g026 entering schedule_delivery
+2026-05-27 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 98, in handle_schedule_delivery_request
+    result = schedule_delivery(...)
+  File "mini_repo/logistics.py", line 8, in schedule_delivery
+    raise ValueError("insufficient stock, backorder required")
+ValueError: insufficient stock, backorder required
+2026-05-27 00:00:02 ERROR request_id=g026 status=500 endpoint=/logistics/schedule
+2026-05-27 00:00:03 INFO ad_service clickstream flush success

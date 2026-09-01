@@ -1,0 +1,12 @@
+2026-04-09 09:10:01 INFO request_id=7f3c endpoint=/users/active payload_size=3
+2026-04-09 09:10:01 WARN request_id=7f3c unusual payload received: users=[{"active": false}, {"active": false}, {"active": false}]
+2026-04-09 09:10:01 DEBUG request_id=7f3c entering first_active_user
+2026-04-09 09:10:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 61, in handle_active_user_request
+    result = first_active_user(users)
+  File "mini_repo/users.py", line 7, in first_active_user
+    return active[0]
+IndexError: list index out of range
+2026-04-09 09:10:02 ERROR request_id=7f3c status=500 endpoint=/users/active
+2026-04-09 09:10:03 INFO ad_service clickstream flush success

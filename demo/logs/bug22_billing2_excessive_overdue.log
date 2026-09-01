@@ -1,0 +1,12 @@
+2026-05-23 00:00:01 INFO request_id=g022 endpoint=/jobs/late_fee_batch payload_size=1
+2026-05-23 00:00:01 WARN request_id=g022 unusual payload received: days_overdue=120
+2026-05-23 00:00:01 DEBUG request_id=g022 entering apply_late_fee_days
+2026-05-23 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 86, in run_late_fee_batch_job
+    result = apply_late_fee_days(...)
+  File "mini_repo/billing2.py", line 8, in apply_late_fee_days
+    raise ValueError("account overdue beyond 90 days, must route to collections")
+ValueError: account overdue beyond 90 days, must route to collections
+2026-05-23 00:00:02 ERROR request_id=g022 status=500 endpoint=/jobs/late_fee_batch
+2026-05-23 00:00:03 INFO ad_service clickstream flush success

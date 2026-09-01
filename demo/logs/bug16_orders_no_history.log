@@ -1,0 +1,12 @@
+2026-05-17 00:00:01 INFO request_id=g016 endpoint=/recommendations/personalize payload_size=1
+2026-05-17 00:00:01 WARN request_id=g016 unusual payload received: orders=[]
+2026-05-17 00:00:01 DEBUG request_id=g016 entering most_recent_order
+2026-05-17 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 68, in handle_recommendations_request
+    result = most_recent_order(...)
+  File "mini_repo/orders.py", line 7, in most_recent_order
+    return max(orders, key=lambda o: o["date"])
+ValueError: max() arg is an empty sequence
+2026-05-17 00:00:02 ERROR request_id=g016 status=500 endpoint=/recommendations/personalize
+2026-05-17 00:00:03 INFO ad_service clickstream flush success

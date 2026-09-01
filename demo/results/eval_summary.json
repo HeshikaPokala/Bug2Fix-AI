@@ -1,0 +1,722 @@
+[
+  {
+    "bug_id": "bug10",
+    "diagnosis": "get_account_email / KeyError",
+    "nollm": {
+      "function": "get_account_email",
+      "module": "mini_repo/accounts.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_account_email",
+      "module": "mini_repo/accounts.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug11",
+    "diagnosis": "first_tag / IndexError",
+    "nollm": {
+      "function": "first_tag",
+      "module": "mini_repo/tagging.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "first_tag",
+      "module": "mini_repo/tagging.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug12",
+    "diagnosis": "compute_average_speed / ZeroDivisionError",
+    "nollm": {
+      "function": "compute_average_speed",
+      "module": "mini_repo/telemetry.py",
+      "error_type": "ZeroDivisionError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "compute_average_speed",
+      "module": "mini_repo/telemetry.py",
+      "error_type": "ZeroDivisionError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug13",
+    "diagnosis": "uppercase_first_letter / IndexError",
+    "nollm": {
+      "function": "uppercase_first_letter",
+      "module": "mini_repo/textutils.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "uppercase_first_letter",
+      "module": "mini_repo/textutils.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug14",
+    "diagnosis": "parse_percentage / AttributeError",
+    "nollm": {
+      "function": "parse_percentage",
+      "module": "mini_repo/parsing.py",
+      "error_type": "AttributeError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "parse_percentage",
+      "module": "mini_repo/parsing.py",
+      "error_type": "AttributeError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 2,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug15",
+    "diagnosis": "total_cart_value / TypeError",
+    "nollm": {
+      "function": "total_cart_value",
+      "module": "mini_repo/cart.py",
+      "error_type": "TypeError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "total_cart_value",
+      "module": "mini_repo/cart.py",
+      "error_type": "TypeError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug16",
+    "diagnosis": "most_recent_order / ValueError",
+    "nollm": {
+      "function": "most_recent_order",
+      "module": "mini_repo/orders.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "most_recent_order",
+      "module": "mini_repo/orders.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug17",
+    "diagnosis": "divide_shares / ZeroDivisionError",
+    "nollm": {
+      "function": "divide_shares",
+      "module": "mini_repo/finance.py",
+      "error_type": "ZeroDivisionError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "divide_shares",
+      "module": "mini_repo/finance.py",
+      "error_type": "ZeroDivisionError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug18",
+    "diagnosis": "get_user_permission / KeyError",
+    "nollm": {
+      "function": "get_user_permission",
+      "module": "mini_repo/roles.py",
+      "error_type": "KeyError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_user_permission",
+      "module": "mini_repo/roles.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug19",
+    "diagnosis": "get_translation / KeyError",
+    "nollm": {
+      "function": "get_translation",
+      "module": "mini_repo/i18n.py",
+      "error_type": "KeyError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_translation",
+      "module": "mini_repo/i18n.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug1",
+    "diagnosis": "format_greeting / AttributeError",
+    "nollm": {
+      "function": "format_greeting",
+      "module": "mini_repo/notifier.py",
+      "error_type": "AttributeError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "format_greeting",
+      "module": "mini_repo/notifier.py",
+      "error_type": "AttributeError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug20",
+    "diagnosis": "get_feature_flag / KeyError",
+    "nollm": {
+      "function": "get_feature_flag",
+      "module": "mini_repo/featureflags.py",
+      "error_type": "KeyError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_feature_flag",
+      "module": "mini_repo/featureflags.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug21",
+    "diagnosis": "set_fan_speed / ValueError",
+    "nollm": {
+      "function": "set_fan_speed",
+      "module": "mini_repo/hvac.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "set_fan_speed",
+      "module": "mini_repo/hvac.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug22",
+    "diagnosis": "apply_late_fee_days / ValueError",
+    "nollm": {
+      "function": "apply_late_fee_days",
+      "module": "mini_repo/billing2.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "apply_late_fee_days",
+      "module": "mini_repo/billing2.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug23",
+    "diagnosis": "set_max_retries / ValueError",
+    "nollm": {
+      "function": "set_max_retries",
+      "module": "mini_repo/retrypolicy.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "set_max_retries",
+      "module": "mini_repo/retrypolicy.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug24",
+    "diagnosis": "book_seats / ValueError",
+    "nollm": {
+      "function": "book_seats",
+      "module": "mini_repo/booking.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "book_seats",
+      "module": "mini_repo/booking.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug25",
+    "diagnosis": "transfer_funds / ValueError",
+    "nollm": {
+      "function": "transfer_funds",
+      "module": "mini_repo/banking.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "transfer_funds",
+      "module": "mini_repo/banking.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug26",
+    "diagnosis": "schedule_delivery / ValueError",
+    "nollm": {
+      "function": "schedule_delivery",
+      "module": "mini_repo/logistics.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "schedule_delivery",
+      "module": "mini_repo/logistics.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug27",
+    "diagnosis": "get_month_name / IndexError",
+    "nollm": {
+      "function": "get_month_name",
+      "module": "mini_repo/calendarutils.py",
+      "error_type": "IndexError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_month_name",
+      "module": "mini_repo/calendarutils.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug28",
+    "diagnosis": "get_priority_label / IndexError",
+    "nollm": {
+      "function": "get_priority_label",
+      "module": "mini_repo/tickets.py",
+      "error_type": "IndexError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_priority_label",
+      "module": "mini_repo/tickets.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug29",
+    "diagnosis": "validate_username / ValueError",
+    "nollm": {
+      "function": "validate_username",
+      "module": "mini_repo/userauth.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "validate_username",
+      "module": "mini_repo/userauth.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug2",
+    "diagnosis": "restock_alert / ValueError",
+    "nollm": {
+      "function": "restock_alert",
+      "module": "mini_repo/inventory.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "restock_alert",
+      "module": "mini_repo/inventory.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug30",
+    "diagnosis": "validate_product_sku / ValueError",
+    "nollm": {
+      "function": "validate_product_sku",
+      "module": "mini_repo/catalog.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "validate_product_sku",
+      "module": "mini_repo/catalog.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug3",
+    "diagnosis": "get_line_item_price / KeyError",
+    "nollm": {
+      "function": "get_line_item_price",
+      "module": "mini_repo/billing.py",
+      "error_type": "KeyError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_line_item_price",
+      "module": "mini_repo/billing.py",
+      "error_type": "KeyError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug4",
+    "diagnosis": "set_boiler_temperature / ValueError",
+    "nollm": {
+      "function": "set_boiler_temperature",
+      "module": "mini_repo/thermostat.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "set_boiler_temperature",
+      "module": "mini_repo/thermostat.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug5",
+    "diagnosis": "withdraw / InsufficientFundsError",
+    "nollm": {
+      "function": "withdraw",
+      "module": "mini_repo/wallet.py",
+      "error_type": "InsufficientFundsError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "withdraw",
+      "module": "mini_repo/wallet.py",
+      "error_type": "InsufficientFundsError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 2,
+      "confidence": 0.74,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug6",
+    "diagnosis": "get_display_name / TypeError",
+    "nollm": {
+      "function": "get_display_name",
+      "module": "mini_repo/profile.py",
+      "error_type": "TypeError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_display_name",
+      "module": "mini_repo/profile.py",
+      "error_type": "TypeError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug7",
+    "diagnosis": "price_range / ValueError",
+    "nollm": {
+      "function": "price_range",
+      "module": "mini_repo/pricing.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.92,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "price_range",
+      "module": "mini_repo/pricing.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug8",
+    "diagnosis": "get_weekday_name / IndexError",
+    "nollm": {
+      "function": "get_weekday_name",
+      "module": "mini_repo/scheduler.py",
+      "error_type": "IndexError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "get_weekday_name",
+      "module": "mini_repo/scheduler.py",
+      "error_type": "IndexError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  },
+  {
+    "bug_id": "bug9",
+    "diagnosis": "calculate_discount / ValueError",
+    "nollm": {
+      "function": "calculate_discount",
+      "module": "mini_repo/discounts.py",
+      "error_type": "ValueError",
+      "repro_confirmed": false,
+      "llm_assisted": false,
+      "llm_attempts": 0,
+      "confidence": 0.74,
+      "root_cause_source": "rule_based"
+    },
+    "llm": {
+      "function": "calculate_discount",
+      "module": "mini_repo/discounts.py",
+      "error_type": "ValueError",
+      "repro_confirmed": true,
+      "llm_assisted": true,
+      "llm_attempts": 1,
+      "confidence": 0.92,
+      "root_cause_source": "llm"
+    }
+  }
+]

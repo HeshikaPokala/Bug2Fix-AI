@@ -30,6 +30,11 @@ def parse_args() -> argparse.Namespace:
         default="artifacts",
         help="Directory where final outputs are written",
     )
+    parser.add_argument(
+        "--no-llm",
+        action="store_true",
+        help="Disable the Ollama-assisted reproduction/fix-planning steps and always use the deterministic rule-based path.",
+    )
     return parser.parse_args()
 
 
@@ -43,6 +48,7 @@ def main() -> None:
         logs_path=Path(args.logs),
         repo_root=Path(args.repo_root),
         output_dir=output_dir,
+        use_llm=not args.no_llm,
     )
     print(f"Decision complete. Report: {result['final_report_path']}")
     print(f"Trace file: {result['trace_path']}")

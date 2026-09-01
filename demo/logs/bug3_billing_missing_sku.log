@@ -1,0 +1,12 @@
+2026-05-04 14:40:01 INFO request_id=cc33 endpoint=/checkout payload_size=1
+2026-05-04 14:40:01 WARN request_id=cc33 unusual payload received: sku=disc-2026-legacy
+2026-05-04 14:40:01 DEBUG request_id=cc33 entering get_line_item_price
+2026-05-04 14:40:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 88, in handle_checkout_request
+    price = get_line_item_price(catalog, sku)
+  File "mini_repo/billing.py", line 8, in get_line_item_price
+    return catalog[sku]
+KeyError: 'disc-2026-legacy'
+2026-05-04 14:40:02 ERROR request_id=cc33 status=500 endpoint=/checkout
+2026-05-04 14:40:03 INFO ad_service clickstream flush success

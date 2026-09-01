@@ -433,6 +433,15 @@ with st.sidebar:
         repo_path_str = st.text_input("Repo root path", "mini_repo")
         output_dir_str = st.text_input("Output dir", "artifacts")
 
+    use_llm = st.checkbox(
+        "Use Ollama for reasoning (if available)",
+        value=True,
+        help="When on, the Reproduction and Fix Planner agents ask a local Ollama model "
+        "(phi4-mini by default) to propose repro inputs and a patch plan grounded in the "
+        "actual failing function's source. Falls back to the deterministic rule-based path "
+        "automatically if Ollama isn't running.",
+    )
+
     run_btn = st.button("Run full analysis", type="primary", use_container_width=True)
 
 st.markdown(
@@ -476,6 +485,7 @@ if run_btn:
                     repo_root=repo_root,
                     output_dir=Path(output_dir_str),
                     workspace_root=PROJECT_ROOT,
+                    use_llm=use_llm,
                 )
             else:
                 result = run_workflow(
@@ -484,6 +494,7 @@ if run_btn:
                     repo_root=Path(repo_path_str),
                     output_dir=Path(output_dir_str),
                     workspace_root=PROJECT_ROOT,
+                    use_llm=use_llm,
                 )
 
             report_path = Path(result["final_report_path"])
@@ -561,6 +572,8 @@ with st.container(border=True):
     )
     st.markdown("**Command (from project root)**")
     st.code(repro.get("command", "") or "—", language="bash")
+    if (repro.get("result") or {}).get("llm_assisted"):
+        st.caption("🦙 Reproduced using an Ollama-proposed input, not the fixed fallback guesses.")
     if repro.get("steps"):
         st.markdown("**What I Tried:**")
         for s in repro["steps"]:
@@ -584,6 +597,9 @@ with col_a:
     with st.container(border=True):
         st.subheader("Root cause hypothesis")
         hyp = report.get("root_cause_hypothesis") or {}
+        src = hyp.get("source")
+        if src:
+            st.caption(f"Source: {'🦙 Ollama-reasoned' if src == 'llm' else '📏 rule-based template'}")
         st.write(hyp.get("statement", "—"))
         hc = hyp.get("confidence")
         if hc is not None:

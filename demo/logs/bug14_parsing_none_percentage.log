@@ -1,0 +1,12 @@
+2026-05-15 00:00:01 INFO request_id=g014 endpoint=/jobs/promotions_import payload_size=1
+2026-05-15 00:00:01 WARN request_id=g014 unusual payload received: percentage=null
+2026-05-15 00:00:01 DEBUG request_id=g014 entering parse_percentage
+2026-05-15 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 62, in run_promotions_import_job
+    result = parse_percentage(...)
+  File "mini_repo/parsing.py", line 7, in parse_percentage
+    return float(value.strip("%")) / 100
+AttributeError: 'NoneType' object has no attribute 'strip'
+2026-05-15 00:00:02 ERROR request_id=g014 status=500 endpoint=/jobs/promotions_import
+2026-05-15 00:00:03 INFO ad_service clickstream flush success

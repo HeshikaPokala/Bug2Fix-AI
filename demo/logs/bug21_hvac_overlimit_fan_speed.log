@@ -1,0 +1,12 @@
+2026-05-22 00:00:01 INFO request_id=g021 endpoint=/hvac/fan/set payload_size=1
+2026-05-22 00:00:01 WARN request_id=g021 unusual payload received: percent=140
+2026-05-22 00:00:01 DEBUG request_id=g021 entering set_fan_speed
+2026-05-22 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 83, in handle_fan_set_request
+    result = set_fan_speed(...)
+  File "mini_repo/hvac.py", line 8, in set_fan_speed
+    raise ValueError(f"Fan speed {percent}% exceeds maximum of 100%")
+ValueError: Fan speed 140% exceeds maximum of 100%
+2026-05-22 00:00:02 ERROR request_id=g021 status=500 endpoint=/hvac/fan/set
+2026-05-22 00:00:03 INFO ad_service clickstream flush success

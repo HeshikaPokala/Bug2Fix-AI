@@ -1,0 +1,12 @@
+2026-05-21 00:00:01 INFO request_id=g020 endpoint=/flags/check payload_size=1
+2026-05-21 00:00:01 WARN request_id=g020 unusual payload received: flag_name=beta_search
+2026-05-21 00:00:01 DEBUG request_id=g020 entering get_feature_flag
+2026-05-21 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 80, in handle_flag_check_request
+    result = get_feature_flag(...)
+  File "mini_repo/featureflags.py", line 7, in get_feature_flag
+    return flags[flag_name]
+KeyError: 'beta_search'
+2026-05-21 00:00:02 ERROR request_id=g020 status=500 endpoint=/flags/check
+2026-05-21 00:00:03 INFO ad_service clickstream flush success

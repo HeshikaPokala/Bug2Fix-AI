@@ -1,0 +1,12 @@
+2026-05-29 00:00:01 INFO request_id=g028 endpoint=/webhooks/ticket_import payload_size=1
+2026-05-29 00:00:01 WARN request_id=g028 unusual payload received: level=7
+2026-05-29 00:00:01 DEBUG request_id=g028 entering get_priority_label
+2026-05-29 00:00:01 INFO unrelated telemetry heartbeat healthy=true
+Traceback (most recent call last):
+  File "service.py", line 104, in handle_ticket_import_webhook
+    result = get_priority_label(...)
+  File "mini_repo/tickets.py", line 10, in get_priority_label
+    return _PRIORITY_LEVELS[level]
+IndexError: list index out of range
+2026-05-29 00:00:02 ERROR request_id=g028 status=500 endpoint=/webhooks/ticket_import
+2026-05-29 00:00:03 INFO ad_service clickstream flush success
